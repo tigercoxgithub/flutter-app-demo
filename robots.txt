@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://flutter-app-demo.pages.dev/sitemap.xml
