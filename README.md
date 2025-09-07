@@ -54,8 +54,18 @@ flutter pub get
 
 ### 3. Run the Application
 
-#### For Web:
+#### For Web (Development):
 ```bash
+# Option 1: Use the optimized development script (recommended)
+./run_web_dev.sh
+
+# Option 2: Use local HTTP server (most reliable, avoids CanvasKit issues)
+./run_web_dev.sh --local
+
+# Option 3: Use the dedicated local server script
+./run_web_local.sh
+
+# Option 4: Standard Flutter command
 flutter run -d chrome
 ```
 
@@ -238,6 +248,48 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Riverpod for state management
 - Google Fonts for typography
 - Material Design for the design system
+
+## 🔧 Troubleshooting
+
+### CanvasKit Loading Issues
+If you encounter errors like "Failed to fetch dynamically imported module" or CanvasKit loading problems:
+
+```bash
+# Use the local server approach (most reliable)
+./run_web_dev.sh --local
+
+# Or use the dedicated local server script
+./run_web_local.sh
+```
+
+### Chrome Launch Issues
+If Chrome takes too long to launch or crashes:
+
+```bash
+# Kill existing Chrome processes
+pkill -f "Google Chrome"
+
+# Use the optimized script
+./run_web_dev.sh
+```
+
+### Build Issues
+If you encounter build errors:
+
+```bash
+# Clean and rebuild
+flutter clean
+flutter pub get
+flutter build web --debug
+```
+
+### Hot Reload Not Working
+If hot reload stops working:
+
+```bash
+# Press 'R' for hot restart instead of 'r' for hot reload
+# Or restart the development server
+```
 
 ## 📞 Support
 
