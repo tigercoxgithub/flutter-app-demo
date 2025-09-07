@@ -2,6 +2,12 @@
 
 A modern Flutter application built for both **Web** and **macOS Desktop** platforms using the same codebase. This project demonstrates best practices in Flutter development, including clean architecture, state management, and cross-platform compatibility.
 
+## 🌐 Live Demo
+
+**Web Application**: [https://flutter-app-demo.pages.dev](https://flutter-app-demo.pages.dev)
+
+The live web version is deployed on Cloudflare Pages and showcases the full functionality of the Flutter web application.
+
 ## 🚀 Features
 
 - **Cross-Platform**: Single codebase for Web and macOS Desktop
@@ -79,6 +85,20 @@ flutter build macos --release
 ```bash
 flutter build web --release && flutter build macos --release
 ```
+
+## 🚀 Deployment
+
+### Web Deployment (Cloudflare Pages)
+The web application is deployed to **Cloudflare Pages** at:
+- **Production URL**: [https://flutter-app-demo.pages.dev](https://flutter-app-demo.pages.dev)
+- **Build Command**: `flutter build web --release`
+- **Build Output Directory**: `build/web`
+
+### Deployment Configuration
+- **Domain**: `flutter-app-demo.pages.dev`
+- **Platform**: Cloudflare Pages
+- **Build Settings**: Flutter web release build
+- **SEO Optimized**: Complete meta tags, sitemap, and structured data
 
 ## 🧪 Testing
 

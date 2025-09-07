@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -16,21 +16,132 @@
   -->
   <base href="$FLUTTER_BASE_HREF">
 
+  <!-- Essential Meta Tags -->
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <!-- iOS meta tags & icons -->
+  <!-- Primary SEO Meta Tags -->
+  <title>Flutter Demo App - Modern Web Application | Responsive Design & Material 3</title>
+  <meta name="title" content="Flutter Demo App - Modern Web Application | Responsive Design & Material 3">
+  <meta name="description" content="Experience a modern Flutter web application featuring Material 3 design, responsive layouts, and cutting-edge web technologies. Built with Flutter for optimal performance and user experience.">
+  <meta name="keywords" content="Flutter web app, Material 3, responsive design, modern web application, Flutter demo, web development, progressive web app, PWA">
+  <meta name="author" content="Flutter Demo App Team">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://flutter-app-demo.pages.dev/">
+  <meta property="og:title" content="Flutter Demo App - Modern Web Application | Responsive Design & Material 3">
+  <meta property="og:description" content="Experience a modern Flutter web application featuring Material 3 design, responsive layouts, and cutting-edge web technologies. Built with Flutter for optimal performance and user experience.">
+  <meta property="og:image" content="https://flutter-app-demo.pages.dev/icons/Icon-512.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="Flutter Demo App Application">
+  <meta property="og:site_name" content="Flutter Demo App">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://flutter-app-demo.pages.dev/">
+  <meta property="twitter:title" content="Flutter Demo App - Modern Web Application | Responsive Design & Material 3">
+  <meta property="twitter:description" content="Experience a modern Flutter web application featuring Material 3 design, responsive layouts, and cutting-edge web technologies. Built with Flutter for optimal performance and user experience.">
+  <meta property="twitter:image" content="https://flutter-app-demo.pages.dev/icons/Icon-512.png">
+  <meta property="twitter:image:alt" content="Flutter Demo App Application">
+
+  <!-- Additional SEO Meta Tags -->
+  <meta name="theme-color" content="#6750A4">
+  <meta name="msapplication-TileColor" content="#6750A4">
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <meta name="application-name" content="Flutter Demo App">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Flutter Demo App">
+  <meta name="format-detection" content="telephone=no">
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="flutter_demo_app">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://flutter-app-demo.pages.dev/">
 
-  <title>flutter_demo_app</title>
+  <!-- Favicon and Icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/Icon-192.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="icons/Icon-192.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="icons/Icon-192.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="icons/Icon-192.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="icons/Icon-192.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="icons/Icon-192.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="icons/Icon-192.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="icons/Icon-192.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="icons/Icon-192.png">
+
+  <!-- Android Chrome Icons -->
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/Icon-512.png">
+
+  <!-- Microsoft Tiles -->
+  <meta name="msapplication-TileImage" content="icons/Icon-192.png">
+  <meta name="msapplication-square70x70logo" content="icons/Icon-192.png">
+  <meta name="msapplication-square150x150logo" content="icons/Icon-192.png">
+  <meta name="msapplication-wide310x150logo" content="icons/Icon-192.png">
+  <meta name="msapplication-square310x310logo" content="icons/Icon-512.png">
+
+  <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.json">
+
+  <!-- Preconnect to external domains for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- DNS Prefetch for performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Flutter Demo App",
+    "description": "A modern Flutter web application featuring Material 3 design, responsive layouts, and cutting-edge web technologies.",
+    "url": "https://flutter-app-demo.pages.dev",
+    "applicationCategory": "WebApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Flutter Demo App Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Flutter Demo App Team"
+    },
+    "datePublished": "2024-01-01",
+    "dateModified": "2024-01-01",
+    "inLanguage": "en-US",
+    "isAccessibleForFree": true,
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "softwareVersion": "1.0.0",
+    "screenshot": "https://flutter-app-demo.pages.dev/icons/Icon-512.png"
+  }
+  </script>
+
+  <!-- Performance and Security -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="flutter_bootstrap.js" as="script">
+  <link rel="preload" href="main.dart.js" as="script">
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
