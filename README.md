@@ -96,33 +96,50 @@ flutter build web --release && flutter build macos --release
 ## 🚀 Deployment
 
 ### Web Deployment (Cloudflare Pages)
-The web application is deployed to **Cloudflare Pages** at:
+The web application is deployed to **Cloudflare Pages** with a modern branch strategy:
+
 - **Production URL**: [https://flutter-app-demo.pages.dev](https://flutter-app-demo.pages.dev)
-- **Build Command**: `flutter build web --release`
-- **Build Output Directory**: `build/web`
+- **Preview URLs**: `https://{hash}.flutter-app-demo.pages.dev`
 
-### Deployment Configuration
-- **Domain**: `flutter-app-demo.pages.dev`
-- **Platform**: Cloudflare Pages
-- **Source Branch**: `web_builds` (contains only built web files)
-- **Build Command**: None (files are pre-built)
-- **Build Output Directory**: `/` (root)
-- **SEO Optimized**: Complete meta tags, sitemap, and structured data
+### Branch Strategy
+- **`main`** → Production deployment (automatic)
+- **`develop`** → Preview deployment (automatic)
+- **`staging`** → Preview deployment (automatic)
+- **`feature/*`** → Preview deployment (automatic)
 
-### Automated Deployment
-Use the provided deployment script to build and deploy:
+### Deployment Scripts
 
+#### Production Deployment
 ```bash
-# Deploy web build to web_builds branch
-./shell_scripts/deploy_web.sh
+# Deploy to production (from main branch only)
+./shell_scripts/deploy_production.sh
 ```
 
-This script will:
-1. Build the Flutter web app (`flutter build web --release`)
-2. Switch to `web_builds` branch
-3. Copy only the built web files to the branch root
-4. Commit and push changes
-5. Switch back to your development branch
+#### Preview Deployment
+```bash
+# Deploy preview (from any branch except main)
+./shell_scripts/deploy_preview.sh
+```
+
+#### Setup Branch Strategy
+```bash
+# Set up recommended branch structure
+./shell_scripts/setup_branches.sh
+```
+
+### Automated Deployment
+The project includes GitHub Actions for automatic deployments:
+
+1. **Push to `main`** → Production deployment
+2. **Push to `develop/staging/feature/*`** → Preview deployment
+3. **Create Pull Request** → Preview deployment with PR comment
+
+### Environment Configuration
+- **Production**: Optimized build with production API endpoints
+- **Preview**: Debug build with staging API endpoints
+- **Environment Variables**: Configured in Cloudflare Pages dashboard
+
+For detailed setup instructions, see [CLOUDFLARE_SETUP.md](CLOUDFLARE_SETUP.md).
 
 ## 🧪 Testing
 
@@ -171,7 +188,22 @@ lib/
 ```
 shell_scripts/
 ├── run_web_dev.sh                   # Web development server script
-└── deploy_web.sh                    # Web deployment script
+├── deploy_production.sh             # Production deployment script
+├── deploy_preview.sh                # Preview deployment script
+├── setup_branches.sh                # Branch strategy setup script
+└── deploy_web.sh                    # Legacy web deployment script
+```
+
+### Environment Configuration
+```
+env.production                       # Production environment variables
+env.preview                          # Preview environment variables
+```
+
+### GitHub Actions
+```
+.github/workflows/
+└── deploy.yml                       # Automated deployment workflow
 ```
 
 ## 🎨 Design System

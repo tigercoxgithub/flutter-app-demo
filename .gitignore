@@ -150,3 +150,12 @@ temp/
 
 # Deployment files
 web_builds_gitignore
+
+# Environment files (use Cloudflare Pages environment variables instead)
+.env
+.env.local
+.env.production
+.env.preview
+
+# Preview branches (auto-generated)
+preview-*
