@@ -80,7 +80,13 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 48, color: Theme.of(context).primaryColor),
+            Icon(
+              icon, 
+              size: 48, 
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Theme.of(context).colorScheme.onSurface
+                  : Theme.of(context).colorScheme.primary,
+            ),
             const Gap(8),
             Text(
               title,
