@@ -60,8 +60,6 @@ else
     
     echo "✅ Web build deployed successfully!"
     echo "🌐 Your app should be available at: https://flutter-app-demo.pages.dev"
-else
-    echo "ℹ️  No changes detected, skipping commit and push"
 fi
 
 # Switch back to original branch
