@@ -262,6 +262,8 @@ If you encounter errors like "Failed to fetch dynamically imported module" or Ca
 ./run_web_local.sh
 ```
 
+**Note**: The local server approach uses a development-specific HTML file (`index_dev.html`) with more permissive Content Security Policy settings to allow CanvasKit loading.
+
 ### Chrome Launch Issues
 If Chrome takes too long to launch or crashes:
 

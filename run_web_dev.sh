@@ -20,6 +20,11 @@ if [ "$1" = "--local" ]; then
     fi
     
     echo "✅ Web build completed successfully"
+    
+    # Copy development-specific HTML file
+    echo "📝 Using development-specific HTML configuration..."
+    cp web/index_dev.html build/web/index.html
+    
     echo "🌐 Starting local HTTP server on port 8080..."
     echo "📱 App available at: http://localhost:8080"
     echo ""
