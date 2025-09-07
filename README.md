@@ -141,6 +141,11 @@ The project includes GitHub Actions for automatic deployments:
 
 For detailed setup instructions, see [CLOUDFLARE_SETUP.md](CLOUDFLARE_SETUP.md).
 
+## 📖 Development Workflow
+
+- **[DEVELOPMENT_WORKFLOW.md](DEVELOPMENT_WORKFLOW.md)** - Complete development process from feature to production
+- **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - Quick command reference for common tasks
+
 ## 🧪 Testing
 
 Run the test suite:
@@ -204,6 +209,13 @@ env.preview                          # Preview environment variables
 ```
 .github/workflows/
 └── deploy.yml                       # Automated deployment workflow
+```
+
+### Documentation
+```
+DEVELOPMENT_WORKFLOW.md              # Complete development process guide
+QUICK_REFERENCE.md                   # Quick command reference
+CLOUDFLARE_SETUP.md                  # Cloudflare Pages setup guide
 ```
 
 ## 🎨 Design System
