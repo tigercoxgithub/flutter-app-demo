@@ -41,7 +41,6 @@ fi
 # Launch Flutter with optimized settings
 flutter run -d chrome \
   --web-port=8080 \
-  --web-browser-flag="--disable-web-security" \
   --web-browser-flag="--disable-features=VizDisplayCompositor" \
   --web-browser-flag="--disable-background-timer-throttling" \
   --web-browser-flag="--disable-backgrounding-occluded-windows" \
