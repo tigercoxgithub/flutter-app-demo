@@ -57,15 +57,12 @@ flutter pub get
 #### For Web (Development):
 ```bash
 # Option 1: Use the optimized development script (recommended)
-./run_web_dev.sh
+./shell_scripts/run_web_dev.sh
 
 # Option 2: Use local HTTP server (most reliable, avoids CanvasKit issues)
-./run_web_dev.sh --local
+./shell_scripts/run_web_dev.sh --local
 
-# Option 3: Use the dedicated local server script
-./run_web_local.sh
-
-# Option 4: Standard Flutter command
+# Option 3: Standard Flutter command
 flutter run -d chrome
 ```
 
@@ -117,7 +114,7 @@ Use the provided deployment script to build and deploy:
 
 ```bash
 # Deploy web build to web_builds branch
-./deploy_web.sh
+./shell_scripts/deploy_web.sh
 ```
 
 This script will:
@@ -168,6 +165,13 @@ lib/
 │   └── domain/
 │       └── models/
 └── main.dart                        # App entry point
+```
+
+### Shell Scripts
+```
+shell_scripts/
+├── run_web_dev.sh                   # Web development server script
+└── deploy_web.sh                    # Web deployment script
 ```
 
 ## 🎨 Design System
@@ -256,10 +260,7 @@ If you encounter errors like "Failed to fetch dynamically imported module" or Ca
 
 ```bash
 # Use the local server approach (most reliable)
-./run_web_dev.sh --local
-
-# Or use the dedicated local server script
-./run_web_local.sh
+./shell_scripts/run_web_dev.sh --local
 ```
 
 **Note**: The local server approach uses a development-specific HTML file (`index_dev.html`) with more permissive Content Security Policy settings to allow CanvasKit loading.
@@ -272,7 +273,7 @@ If Chrome takes too long to launch or crashes:
 pkill -f "Google Chrome"
 
 # Use the optimized script
-./run_web_dev.sh
+./shell_scripts/run_web_dev.sh
 ```
 
 ### Build Issues

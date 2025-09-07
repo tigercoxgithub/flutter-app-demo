@@ -29,18 +29,48 @@ fi
 
 echo "✅ Web build completed successfully"
 
+# Create a backup of the build directory
+echo "💾 Creating backup of build directory..."
+cp -r build/web /tmp/flutter_web_build_backup_$(date +%s) 2>/dev/null || true
+
+# Handle uncommitted changes by committing them temporarily
+echo "💾 Handling uncommitted changes..."
+if ! git diff --quiet || ! git diff --cached --quiet; then
+    echo "📝 Committing current changes temporarily..."
+    git add .
+    git commit -m "Temporary commit before web deployment - $(date '+%Y-%m-%d %H:%M:%S')" || true
+fi
+
 # Switch to web_builds branch
 echo "🔄 Switching to web_builds branch..."
-git checkout web_builds
+if ! git checkout web_builds 2>/dev/null; then
+    echo "📝 Creating web_builds branch..."
+    git checkout -b web_builds
+fi
 
-# Remove all files except build/web and essential git files
+# Clean the web_builds branch (remove all files except .git)
 echo "🧹 Cleaning web_builds branch..."
-git rm -rf . 2>/dev/null || true
+find . -maxdepth 1 -mindepth 1 -not -name ".git" -not -name "build" -exec rm -rf {} + 2>/dev/null || true
 
 # Copy only the build/web contents to root
 echo "📁 Copying web build files..."
-cp -r build/web/* .
-cp -r build/web/.* . 2>/dev/null || true
+if [ -d "build/web" ]; then
+    cp -r build/web/* . 2>/dev/null || true
+    cp -r build/web/.* . 2>/dev/null || true
+else
+    # Try to use the backup if build/web doesn't exist
+    BACKUP_DIR=$(ls -t /tmp/flutter_web_build_backup_* 2>/dev/null | head -1)
+    if [ -n "$BACKUP_DIR" ] && [ -d "$BACKUP_DIR" ]; then
+        echo "📁 Using backup build directory..."
+        cp -r "$BACKUP_DIR"/* . 2>/dev/null || true
+        cp -r "$BACKUP_DIR"/.* . 2>/dev/null || true
+    else
+        echo "❌ Error: build/web directory not found and no backup available"
+        echo "🔄 Switching back to $CURRENT_BRANCH branch..."
+        git checkout "$CURRENT_BRANCH"
+        exit 1
+    fi
+fi
 
 # Add all files to git
 echo "📝 Adding files to git..."
@@ -65,6 +95,13 @@ fi
 # Switch back to original branch
 echo "🔄 Switching back to $CURRENT_BRANCH branch..."
 git checkout "$CURRENT_BRANCH"
+
+# The temporary commit is already on the current branch, so no restoration needed
+echo "✅ All changes are preserved in the current branch"
+
+# Clean up backup directories
+echo "🧹 Cleaning up backup directories..."
+rm -rf /tmp/flutter_web_build_backup_* 2>/dev/null || true
 
 echo "🎉 Deploy process completed!"
 echo ""
