@@ -147,3 +147,6 @@ out/
 # Temporary folders
 tmp/
 temp/
+
+# Deployment files
+web_builds_gitignore

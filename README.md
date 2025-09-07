@@ -97,8 +97,25 @@ The web application is deployed to **Cloudflare Pages** at:
 ### Deployment Configuration
 - **Domain**: `flutter-app-demo.pages.dev`
 - **Platform**: Cloudflare Pages
-- **Build Settings**: Flutter web release build
+- **Source Branch**: `web_builds` (contains only built web files)
+- **Build Command**: None (files are pre-built)
+- **Build Output Directory**: `/` (root)
 - **SEO Optimized**: Complete meta tags, sitemap, and structured data
+
+### Automated Deployment
+Use the provided deployment script to build and deploy:
+
+```bash
+# Deploy web build to web_builds branch
+./deploy_web.sh
+```
+
+This script will:
+1. Build the Flutter web app (`flutter build web --release`)
+2. Switch to `web_builds` branch
+3. Copy only the built web files to the branch root
+4. Commit and push changes
+5. Switch back to your development branch
 
 ## 🧪 Testing
 
