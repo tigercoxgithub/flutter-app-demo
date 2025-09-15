@@ -58,7 +58,7 @@
   <link rel="dns-prefetch" href="https://www.gstatic.com">
 
   <!-- Development-specific CSP (more permissive) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https: ws: wss:; worker-src 'self' blob:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https: ws: wss:; worker-src 'self' blob:;">
 
   <title>Flutter Demo App - Development</title>
 </head>
@@ -66,6 +66,9 @@
   <!-- Flutter App Container -->
   <div id="loading">Loading...</div>
 
+  <!-- Model Viewer for 3D support -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  
   <!-- Flutter Bootstrap Script -->
   <script src="flutter_bootstrap.js" async></script>
 

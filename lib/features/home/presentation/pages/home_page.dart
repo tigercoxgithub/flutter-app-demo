@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -17,7 +18,7 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Welcome to Flutter Demo',
+              'Welcome to your Flutter Demo Tiger',
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
@@ -60,6 +61,13 @@ class HomePage extends StatelessWidget {
                   Icons.star,
                   'Latest Flutter features',
                 ),
+                _buildFeatureCard(
+                  context,
+                  '3D Viewer',
+                  Icons.view_in_ar,
+                  'Interactive 3D models',
+                  onTap: () => context.go('/3d-viewer'),
+                ),
               ],
             ),
           ],
@@ -72,38 +80,43 @@ class HomePage extends StatelessWidget {
     BuildContext context,
     String title,
     IconData icon,
-    String description,
-  ) {
+    String description, {
+    VoidCallback? onTap,
+  }) {
     return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              icon, 
-              size: 48, 
-              color: Theme.of(context).brightness == Brightness.dark
-                  ? Theme.of(context).colorScheme.onSurface
-                  : Theme.of(context).colorScheme.primary,
-            ),
-            const Gap(8),
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                size: 48,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Theme.of(context).colorScheme.onSurface
+                    : Theme.of(context).colorScheme.primary,
               ),
-            ),
-            const Gap(4),
-            Text(
-              description,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Theme.of(context).textTheme.bodySmall?.color,
+              const Gap(8),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-          ],
+              const Gap(4),
+              Text(
+                description,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Theme.of(context).textTheme.bodySmall?.color,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -37,6 +37,11 @@ class MainLayout extends StatelessWidget {
                       selectedIcon: Icon(Icons.settings),
                       label: Text('Settings'),
                     ),
+                    NavigationRailDestination(
+                      icon: Icon(Icons.view_in_ar_outlined),
+                      selectedIcon: Icon(Icons.view_in_ar),
+                      label: Text('3D Viewer'),
+                    ),
                   ],
                 ),
                 const VerticalDivider(thickness: 1, width: 1),
@@ -67,6 +72,11 @@ class MainLayout extends StatelessWidget {
                     activeIcon: Icon(Icons.settings),
                     label: 'Settings',
                   ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.view_in_ar_outlined),
+                    activeIcon: Icon(Icons.view_in_ar),
+                    label: '3D Viewer',
+                  ),
                 ],
               ),
             );
@@ -85,6 +95,8 @@ class MainLayout extends StatelessWidget {
         return 1;
       case '/settings':
         return 2;
+      case '/3d-viewer':
+        return 3;
       default:
         return 0;
     }
@@ -100,6 +112,9 @@ class MainLayout extends StatelessWidget {
         break;
       case 2:
         context.go('/settings');
+        break;
+      case 3:
+        context.go('/3d-viewer');
         break;
     }
   }

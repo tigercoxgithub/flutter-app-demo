@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Theme mode provider
-final themeModeProvider = StateNotifierProvider<ThemeModeNotifier, ThemeMode>((ref) {
+final themeModeProvider =
+    StateNotifierProvider<ThemeModeNotifier, ThemeMode>((ref) {
   return ThemeModeNotifier();
 });
 

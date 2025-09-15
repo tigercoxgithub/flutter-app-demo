@@ -47,8 +47,7 @@ flutter run -d chrome \
   --web-browser-flag="--disable-renderer-backgrounding" \
   --web-browser-flag="--enable-gpu" \
   --web-browser-flag="--enable-gpu-rasterization" \
-  --web-browser-flag="--disable-extensions" \
-  --web-browser-flag="--no-sandbox"
+  --web-browser-flag="--disable-extensions" 
 
 echo "✅ Flutter Web Development Server Started!"
 echo "🌐 App available at: http://localhost:8080"

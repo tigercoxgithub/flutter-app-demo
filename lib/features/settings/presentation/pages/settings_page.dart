@@ -235,7 +235,8 @@ class _SettingsPageState extends ConsumerState<SettingsPage> {
     }
   }
 
-  void _showThemeModeDialog(BuildContext context, ThemeModeNotifier notifier, ThemeMode currentMode) {
+  void _showThemeModeDialog(
+      BuildContext context, ThemeModeNotifier notifier, ThemeMode currentMode) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
