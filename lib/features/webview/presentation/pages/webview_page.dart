@@ -34,7 +34,7 @@ class _WebViewPageState extends State<WebViewPage> {
         children: [
           InAppWebView(
             initialUrlRequest: URLRequest(
-              url: WebUri('https://example.com'),
+              url: WebUri('/simple_page.html'),
             ),
             initialSettings: InAppWebViewSettings(
               useShouldOverrideUrlLoading: true,
