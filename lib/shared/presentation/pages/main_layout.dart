@@ -42,6 +42,11 @@ class MainLayout extends StatelessWidget {
                       selectedIcon: Icon(Icons.view_in_ar),
                       label: Text('3D Viewer'),
                     ),
+                    NavigationRailDestination(
+                      icon: Icon(Icons.web),
+                      selectedIcon: Icon(Icons.web),
+                      label: Text('Web Viewer'),
+                    ),
                   ],
                 ),
                 const VerticalDivider(thickness: 1, width: 1),
@@ -77,6 +82,11 @@ class MainLayout extends StatelessWidget {
                     activeIcon: Icon(Icons.view_in_ar),
                     label: '3D Viewer',
                   ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.web),
+                    activeIcon: Icon(Icons.web),
+                    label: 'Web Viewer',
+                  ),
                 ],
               ),
             );
@@ -97,6 +107,8 @@ class MainLayout extends StatelessWidget {
         return 2;
       case '/3d-viewer':
         return 3;
+      case '/webview':
+        return 4;
       default:
         return 0;
     }
@@ -115,6 +127,9 @@ class MainLayout extends StatelessWidget {
         break;
       case 3:
         context.go('/3d-viewer');
+        break;
+      case 4:
+        context.go('/webview');
         break;
     }
   }

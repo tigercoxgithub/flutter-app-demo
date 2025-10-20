@@ -33,6 +33,9 @@ dependencies:
   # Utilities
   logging: ^1.2.0
   flutter_3d_controller: ^2.3.0
+  
+  # WebView
+  flutter_inappwebview: ^6.0.0
 
 dev_dependencies:
   flutter_test:

@@ -5,6 +5,7 @@ import '../../features/home/presentation/pages/home_page.dart';
 import '../../features/profile/presentation/pages/profile_page.dart';
 import '../../features/settings/presentation/pages/settings_page.dart';
 import '../../features/3d_viewer/presentation/pages/viewer_3d_page.dart';
+import '../../features/webview/presentation/pages/webview_page.dart';
 import '../../shared/presentation/pages/main_layout.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -35,6 +36,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             path: '/3d-viewer',
             name: '3d-viewer',
             builder: (context, state) => const Viewer3DPage(),
+          ),
+          GoRoute(
+            path: '/webview',
+            name: 'webview',
+            builder: (context, state) => const WebViewPage(),
           ),
         ],
       ),

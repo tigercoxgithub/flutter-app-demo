@@ -68,6 +68,13 @@ class HomePage extends StatelessWidget {
                   'Interactive 3D models',
                   onTap: () => context.go('/3d-viewer'),
                 ),
+                _buildFeatureCard(
+                  context,
+                  'Web Viewer',
+                  Icons.web,
+                  'Browse external content',
+                  onTap: () => context.go('/webview'),
+                ),
               ],
             ),
           ],
