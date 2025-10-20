@@ -197473,7 +197473,7 @@
       var t4, _this = this, _null = null,
         t1 = type$.JSArray_Widget,
         t2 = A.AppBar$(A._setArrayType([A.IconButton$(_null, _null, B.Icon_EYb, _null, _null, new A._WebViewPageState_build_closure(_this), _null, _null, "Refresh")], t1), _null, true, B.Text_8cF),
-        t3 = A.URLRequest$(_null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, A.WebUri$("https://example.com"));
+        t3 = A.URLRequest$(_null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, A.WebUri$("/simple_page.html"));
       t3 = A._setArrayType([A.InAppWebView$(A.InAppWebViewSettings$(_null, true, _null, _null, _null, _null, _null, "camera; microphone", true, _null, _null, _null, _null, _null, _null, false, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, _null, _null, _null), t3, new A._WebViewPageState_build_closure0(_this), new A._WebViewPageState_build_closure1(_this), new A._WebViewPageState_build_closure2(_this), new A._WebViewPageState_build_closure3(_this), new A._WebViewPageState_build_closure4(_this), new A._WebViewPageState_build_closure5(_this))], t1);
       if (_this._webview_page$_isLoading && _this._progress < 1) {
         t4 = _this._progress;

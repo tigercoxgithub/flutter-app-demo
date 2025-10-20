@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calendar</title>
+<style>
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f0f0;
+}
+
+/* Calendar container */
+.calendar {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.1);
+}
+
+/* Header with navigation buttons */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Navigation buttons */
+button {
+    padding: 8px 16px;
+    cursor: pointer;
+    border: 0;
+    background: #2196f3;
+    color: #fff;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #1976d2;
+}
+
+/* Calendar grid layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 50px);
+    gap: 5px;
+}
+
+/* Day of week headers */
+.day {
+    text-align: center;
+    font-weight: 700;
+    padding: 10px;
+}
+
+/* Date cells */
+.date {
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: .2s;
+}
+
+.date:hover {
+    background: #e3f2fd;
+}
+
+/* Selected date highlighting */
+.selected {
+    background: #2196f3 !important;
+    color: #fff;
+}
+</style>
+</head>
+<body>
+
+<div class="calendar">
+    <!-- Month navigation header -->
+    <div class="header">
+        <button onclick="changeMonth(-1)">◀</button>
+        <h2 id="title"></h2>
+        <button onclick="changeMonth(1)">▶</button>
+    </div>
+    
+    <!-- Calendar grid -->
+    <div class="grid" id="grid"></div>
+</div>
+
+<script>
+// Current month and year tracking
+let m = new Date().getMonth();
+let y = new Date().getFullYear();
+
+// Set to store selected dates (format: "year-month-day")
+let selectedDates = new Set();
+
+// Render the calendar for current month/year
+function render() {
+    const firstDay = new Date(y, m, 1); // First day of month
+    const daysInMonth = new Date(y, m + 1, 0).getDate(); // Total days in month
+    const startDay = firstDay.getDay(); // Starting day of week (0=Sun, 6=Sat)
+    
+    // Update title with current month/year
+    document.getElementById('title').innerText = firstDay.toLocaleDateString('en', {
+        month: 'long',
+        year: 'numeric'
+    });
+    
+    let html = '';
+    
+    // Add day of week headers
+    ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].forEach(day => {
+        html += `<div class="day">${day}</div>`;
+    });
+    
+    // Add empty cells for days before month starts
+    for (let i = 0; i < startDay; i++) {
+        html += '<div></div>';
+    }
+    
+    // Add date cells
+    for (let i = 1; i <= daysInMonth; i++) {
+        const dateKey = `${y}-${m}-${i}`; // Unique identifier for this date
+        const isSelected = selectedDates.has(dateKey) ? ' selected' : '';
+        html += `<div class="date${isSelected}" onclick="toggleDate('${dateKey}', this)">${i}</div>`;
+    }
+    
+    // Insert generated HTML into grid
+    document.getElementById('grid').innerHTML = html;
+}
+
+// Toggle date selection on/off
+function toggleDate(dateKey, element) {
+    if (selectedDates.has(dateKey)) {
+        selectedDates.delete(dateKey); // Unselect
+    } else {
+        selectedDates.add(dateKey); // Select
+    }
+    element.classList.toggle('selected');
+}
+
+// Navigate to previous/next month
+function changeMonth(direction) {
+    m += direction;
+    
+    // Handle year boundaries
+    if (m < 0) {
+        m = 11;
+        y--;
+    } else if (m > 11) {
+        m = 0;
+        y++;
+    }
+    
+    render(); // Re-render calendar
+}
+
+// Initial render
+render();
+</script>
+
+</body>
+</html>
